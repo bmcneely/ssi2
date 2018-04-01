@@ -1,0 +1,66 @@
+<div class="container">
+        <div class="row">
+          <div class="col s12 m6 offset-m2">
+            <div class="card">
+              <div class="card-content">
+                <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+                  <div class="row">
+                    <div class="input-field col s12 center">
+                      <h4>Register</h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                        <i class="mdi-editor-mode-edit prefix"></i>
+                        <input id="firstname" name="firstname" type="text" ng-model="vm.user.name" required>
+                        <label for="firstname">Name*</label>
+                        <div class="errorTxt1" ng-show="form.firstname.$error.required && vm.submitted" style="margin-left: 18%;">
+                            <div id="ufname-error" class="error">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="mdi-social-person-outline prefix"></i>
+                        <input id="email" name="email" type="email"  class="validate" ng-model="vm.user.email" required>
+                        <label for="email" >Email*</label>
+                        <div class="errorTxt1" ng-show="form.email.$error.required && vm.submitted" style="margin-left: 18%;">
+                            <div id="uname-error" class="error">Email address is required</div>
+                        </div>
+                    <!--<div class="errorTxt1" ng-show="form.email.$error.cemail && vm.submitted" style="margin-left: 18%;"><div id="uname-error" class="error">Please provide valid email</div></div>-->
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="mdi-action-lock-outline prefix"></i>
+                        <input id="password" name="password" type="password" class="validate" ng-model="vm.user.password" required>
+                        <label for="password">Password*</label>
+                        <div class="errorTxt1" ng-show="form.password.$error.required && vm.submitted" style="margin-left: 18%;">
+                            <div id="uname-error" class="error">Password is required</div>
+                        </div>
+                    </div>
+                  </div>
+
+             
+                  <div class="row">
+                    <div class="input-field col s12 m4">
+                      <button class="btn btn-inverse col s12" type="submit">Sign up
+                </button>
+                    </div>
+                    
+                    
+                  </div>
+                  <div class="row">
+                  <div class="form-group has-error">
+                        <p class="help-block">{{ vm.errors.other }}</p>
+                    </div>
+                </div>
+                </form>
+              </div>
+              <div class="card-action">
+                <!--<input type="submit" class="btn" value="Sign In">-->
+                <p class="margin center medium-small sign-up">Already have an account? <a href="/login">Login</a></p>
+              </div>
+            </div>
+          </div>
+          <script>
+                $(document).ready(function() {
+                  $('select').material_select();
+                });
+              </script>
