@@ -12,12 +12,13 @@ class MainController {
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
 
-    if (localStorage.getItem("userId") = ''){
+    if (localStorage.getItem("userId") == ''){
 
       //localStorage.setItem("userId", this.getCurrentUser()._id);
     }
 
     CalendarEvent.query({id: localStorage.getItem("userId")}).$promise.then(response => {
+      console.log('initial event');
       this.events = response;
       socket.syncUpdates('events', this.events);
     });

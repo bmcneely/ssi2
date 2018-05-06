@@ -25,6 +25,7 @@ angular.module('eventx')
 
 
     CalendarEvent.query({id: localStorage.getItem("userId")}).$promise.then(response => {
+      console.log('calendar query');
       $scope.events = response
       socket.syncUpdates('events', $scope.events);
     });

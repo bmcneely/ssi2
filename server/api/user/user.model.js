@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     role: {
       type: DataTypes.STRING,
-      defaultValue: 'admin'
+      defaultValue: 'user'
     },
     password: {
       type: DataTypes.STRING,

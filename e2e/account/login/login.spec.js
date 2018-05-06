@@ -10,17 +10,17 @@ describe('Login View', function() {
     browser.get(config.baseUrl + '/login');
     page = require('./login.po');
   };
-
+  /*
   var testUser = {
     name: 'Test User',
     email: 'test@example.com',
     password: 'test'
   };
-
+  */
   beforeEach(function(done) {
     UserModel.destroy({ where: {} })
       .then(function() {
-        return UserModel.create(testUser);
+        //return UserModel.create(testUser);
       })
       .then(loadPage)
       .finally(function() {
