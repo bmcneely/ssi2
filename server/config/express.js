@@ -49,13 +49,13 @@ export default function(app) {
   // }));
 
 //express session configuration
-  app.use(sessionMiddleware);
+ // app.use(sessionMiddleware);
 
 
   /**
    * Lusca - express server security
    * https://github.com/krakenjs/lusca
-   */
+   
   if ('test' !== env) {
     app.use(lusca({
       csrf: {
@@ -70,7 +70,7 @@ export default function(app) {
       xssProtection: true
     }));
   }
-
+*/
   app.set('appPath', path.join(config.root, 'client'));
 
   if ('production' === env) {
@@ -81,14 +81,14 @@ export default function(app) {
   }
 
   if ('development' === env) {
-    app.use(require('connect-livereload')());
+    //app.use(require('connect-livereload')());
   }
 
   if ('development' === env || 'test' === env) {
     app.use(express.static(path.join(config.root, '.tmp')));
     app.use(express.static(app.get('appPath')));
     app.use('/fonts', express.static('./app/assets/fonts'));
-    app.use(morgan('dev'));
+   // app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last
   }
 }

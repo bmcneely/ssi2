@@ -5,9 +5,10 @@ class LoginController {
     this.user       = {};
     this.errors     = {};
     this.submitted  = false;
-
+    
     this.Auth   = Auth;
     this.$state = $state;
+
     //this.user.email = "admin@example.com";
     //this.user.password = "admin";
     $rootScope.$state = $state;
@@ -25,7 +26,6 @@ class LoginController {
         // Logged in, redirect to home
         this.$state.go('main');
         var userId = this.Auth.getCurrentUser()._id;
-        console.log(userId);
         localStorage.setItem("userId", userId);
         console.log(localStorage);
       })

@@ -14,6 +14,6 @@ module.exports = {
 		8080,
 	
 	mysql: {
-    	uri: process.env.CLEARDB_DATABASE_URL || 'mysql://bmac:*RIzA1a}vo8P@ssievents.cuh8psl1hdtu.us-east-2.rds.amazonaws.com:3306/ssievents'  
+    	uri: process.env.CLEARDB_DATABASE_URL || 'mysql://bmac:*RI@A1a}vo8P@160.153.75.160:3306/ssi-events'  
 	}
 };

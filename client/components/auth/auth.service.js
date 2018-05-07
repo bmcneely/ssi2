@@ -115,52 +115,51 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
         });
     },
 
-    /**
-     * Check if a user is logged in
-     *   (synchronous|asynchronous)
-     *
-     * @param  {Function|*} callback - optional, function(is)
-     * @return {Bool|Promise}
-     */
-    isLoggedIn(callback) {
-      if (arguments.length === 0) {
-        console.log(currentUser.hasOwnProperty('role'));
-        return currentUser.hasOwnProperty('role');
-      }
+			/**
+			 * Check if a user is logged in
+			 *   (synchronous|asynchronous)
+			 *
+			 * @param  {Function|*} callback - optional, function(is)
+			 * @return {Bool|Promise}
+			 */
+			isLoggedIn(callback) {
+				if (arguments.length === 0) {
+					return currentUser.hasOwnProperty('role');
+				}
 
-      return Auth.getCurrentUser(null)
-        .then(user => {
-          var is = user.hasOwnProperty('role');
-          safeCb(callback)(is);
-          return is;
-        });
-    },
+				return Auth.getCurrentUser(null)
+					.then(user => {
+						var is = user.hasOwnProperty('role');
+						safeCb(callback)(is);
+						return is;
+					});
+			},
 
-     /**
-      * Check if a user has a specified role or higher
-      *   (synchronous|asynchronous)
-      *
-      * @param  {String}     role     - the role to check against
-      * @param  {Function|*} callback - optional, function(has)
-      * @return {Bool|Promise}
-      */
-    hasRole(role, callback) {
-      var hasRole = function(r, h) {
-        return userRoles.indexOf(r) >= userRoles.indexOf(h);
-      };
+			/**
+			 * Check if a user has a specified role or higher
+			 *   (synchronous|asynchronous)
+			 *
+			 * @param  {String}     role     - the role to check against
+			 * @param  {Function|*} callback - optional, function(has)
+			 * @return {Bool|Promise}
+			 */
+			hasRole(role, callback) {
+				var hasRole = function(r, h) {
+					return userRoles.indexOf(r) >= userRoles.indexOf(h);
+				};
+				if (arguments.length < 2) {
+					return hasRole(currentUser.role, role);
+				}
 
-      if (arguments.length < 2) {
-        return hasRole(currentUser.role, role);
-      }
+				return Auth.getCurrentUser(null)
+					.then(user => {
+						var has = (user.hasOwnProperty('role')) ?
+							hasRole(user.role, role) : false;
+						safeCb(callback)(has);
+						return has;
+					});
+			},
 
-      return Auth.getCurrentUser(null)
-        .then(user => {
-          var has = (user.hasOwnProperty('role')) ?
-            hasRole(user.role, role) : false;
-          safeCb(callback)(has);
-          return has;
-        });
-    },
 
      /**
       * Check if a user is an admin
