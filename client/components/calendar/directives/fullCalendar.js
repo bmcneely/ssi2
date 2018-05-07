@@ -3,6 +3,7 @@
 angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log, $timeout, $compile) {
 
     var lnk = function (scope, element) {
+        //console.log(scope);
         var $calendar = $("#calendar");
         var calendar = null;
 
@@ -34,6 +35,8 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
         function initCalendar() {
 
             calendar = $calendar.fullCalendar({
+                //height: $(window).height(),
+                height: 'auto',
                 lang: 'en',
                 editable: true,
                 draggable: true,

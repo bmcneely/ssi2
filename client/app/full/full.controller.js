@@ -2,23 +2,25 @@
 
 (function() {
 
-class MainController {
+class FullController {
 
-  constructor($http, $scope, $compile, socket, Auth,CalendarEvent, $cookies) {
+  constructor($http, $scope, $compile, socket, Auth,CalendarEvent, $cookies, $state,$rootScope) {
     this.$http = $http;
-    this.awesomeThings = [];
 
+    this.$state = $state;
+    $rootScope.$state = $state;
+    
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
 
     if (localStorage.getItem("userId") == ''){
-
+      console.log
       //localStorage.setItem("userId", this.getCurrentUser()._id);
     }
 
     CalendarEvent.query({id: localStorage.getItem("userId")}).$promise.then(response => {
-      //console.log('initial event');
+      
       this.events = response;
       socket.syncUpdates('events', this.events);
     });
@@ -26,5 +28,5 @@ class MainController {
 }
 
   angular.module('eventx')
-    .controller('MainController', MainController);
+    .controller('FullController', FullController);
 })();
