@@ -123,6 +123,7 @@ function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
 			 * @return {Bool|Promise}
 			 */
 			isLoggedIn(callback) {
+        
 				if (arguments.length === 0) {
 					return currentUser.hasOwnProperty('role');
 				}

@@ -36,7 +36,8 @@ describe('Events API:', function() {
         .post('/api/events')
         .send({
           name: 'Test Event',
-          info: 'This is the new test event.'
+          info: 'This is the new test event.',
+          UserId: '1'
         })
         .expect(201)
         .expect('Content-Type', /json/)
