@@ -10,8 +10,8 @@ module.exports = {
 	// },
 
 	mysql: {
-	 //uri: 'mysql://bmac:*RI@A1a}vo8P@160.153.75.160:3306/ssi-events'
-	 uri: 'mysql://bmac:*RIzA1a}vo8P@ssievents.cuh8psl1hdtu.us-east-2.rds.amazonaws.com:3306/ssievents'
+	 uri: 'mysql://bmac:*RI@A1a}vo8P@160.153.75.160:3306/ssi-events'
+	 //uri: 'mysql://bmac:*RIzA1a}vo8P@ssievents.cuh8psl1hdtu.us-east-2.rds.amazonaws.com:3306/ssievents'
 	},
 
 	// Sequelize connection opions
