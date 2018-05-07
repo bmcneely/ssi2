@@ -14,11 +14,11 @@ angular.module('eventx')
         referrer: 'main',
         template: '',
         controller: function($state, Auth) {
-          var referrer = $state.params.referrer ||
-                          $state.current.referrer ||
+          var referrer = 
                           'main';
           Auth.logout();
           localStorage.clear();
+          console.log(referrer);
           $state.go(referrer);
         }
       })

@@ -6,7 +6,6 @@ class MainController {
 
   constructor($http, $scope, $compile, socket, Auth,CalendarEvent, $cookies) {
     this.$http = $http;
-    this.awesomeThings = [];
 
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
