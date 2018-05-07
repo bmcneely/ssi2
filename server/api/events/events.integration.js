@@ -35,8 +35,8 @@ describe('Events API:', function() {
       request(app)
         .post('/api/events')
         .send({
-          name: 'New Events',
-          info: 'This is the brand new events!!!'
+          name: 'Test Event',
+          info: 'This is the new test event.'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -50,8 +50,8 @@ describe('Events API:', function() {
     });
 
     it('should respond with the newly created events', function() {
-      newEvents.name.should.equal('New Events');
-      newEvents.info.should.equal('This is the brand new events!!!');
+      newEvents.name.should.equal('Test Event');
+      newEvents.info.should.equal('This is the new test event.');
     });
 
   });
@@ -78,8 +78,8 @@ describe('Events API:', function() {
     });
 
     it('should respond with the requested events', function() {
-      events.name.should.equal('New Events');
-      events.info.should.equal('This is the brand new events!!!');
+      events.name.should.equal('Test Event');
+      events.info.should.equal('This is the new test event.');
     });
 
   });
@@ -91,8 +91,8 @@ describe('Events API:', function() {
       request(app)
         .put('/api/events/' + newEvents._id)
         .send({
-          name: 'Updated Events',
-          info: 'This is the updated events!!!'
+          name: 'Updated Test Event',
+          info: 'Updated Test Event'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -110,8 +110,8 @@ describe('Events API:', function() {
     });
 
     it('should respond with the updated events', function() {
-      updatedEvents.name.should.equal('Updated Events');
-      updatedEvents.info.should.equal('This is the updated events!!!');
+      updatedEvents.name.should.equal('Updated Test Event');
+      updatedEvents.info.should.equal('Updated Test Event');
     });
 
   });

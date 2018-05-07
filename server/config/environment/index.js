@@ -33,8 +33,8 @@ var all = {
 	},
 	mysql: {
 		options: {
-      dialect: 'mysql',
-      protocol: 'mysql',
+      	dialect: 'mysql',
+      	protocol: 'mysql',
         dialectOptions: {
             ssl: false
         },

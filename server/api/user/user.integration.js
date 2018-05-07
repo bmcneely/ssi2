@@ -11,8 +11,8 @@ describe('User API:', function() {
   before(function() {
     return User.destroy({ where: {} }).then(function() {
       user = User.build({
-        name: 'Fake User',
-        email: 'test@example.com',
+        name: 'Integration Test User',
+        email: 'testuser@mochatest.com',
         password: 'password'
       });
 
@@ -32,7 +32,7 @@ describe('User API:', function() {
       request(app)
         .post('/auth/local')
         .send({
-          email: 'test@example.com',
+          email: 'testuser@mochatest.com',
           password: 'password'
         })
         .expect(200)

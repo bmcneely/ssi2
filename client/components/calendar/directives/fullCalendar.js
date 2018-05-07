@@ -36,7 +36,7 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
 
             calendar = $calendar.fullCalendar({
                 //height: $(window).height(),
-                height: 'auto',
+                
                 lang: 'en',
                 editable: true,
                 draggable: true,
